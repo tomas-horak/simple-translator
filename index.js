@@ -1,44 +1,44 @@
 const button = document.querySelector("#button")
-const selection = document.querySelector("#selection")
+const selectFrom = document.querySelector("#selectFrom")
+const selectTo = document.querySelector("#selectTo")
 const inputFromUser = document.querySelector("#user-input")
 const translateButton = document.querySelector("#button")
 const displayTranslation = document.querySelector("#display")
 
+//objekt co drží jazyky a jejich zkratky
+const keyValueForLanguages = {
+English: "en",
+German: "de",
+Spanish: "es",
+Czech: "cs",
+Danish: "da",
+French: "fr",
+Vietnamese: "vi",
+Polish: "pl"
+}
+//pole jazyků 
+const keys = Object.keys(keyValueForLanguages)
+
+//zobrazí jazyky v selectu
+const displayLanguagesToSelection = (keys) => {
+    keys.forEach(key => {
+    selectFrom.insertAdjacentHTML("beforeend", `<option>${key}</option>`)
+    selectTo.insertAdjacentHTML("beforeend", `<option>${key}</option>`)
+})
+}
+
+//při zmáčkutí "translate" zavolá funkci, která dělá call na API
 translateButton.addEventListener("click", event => {
     event.preventDefault()
     translate()
-    
-
 })
-
-
-const getLanguages = async () => {
-    try {
-        const response = await fetch("https://google-translate1.p.rapidapi.com/language/translate/v2/languages", {
-            method: "GET",
-            headers: {
-            'Accept-Encoding': 'application/gzip',
-            'X-RapidAPI-Key': '2633ec6471msh82ba541ddc331b8p1bb800jsn4765995e724b',
-            'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-            }
-          } );
-        const data = await response.json()
-        data.data.languages.forEach(element => {
-            
-        selection.insertAdjacentHTML("beforeend", `<option value="${element.language}">${element.language}</option>`)
-    })}catch (error){
-        console.error(error)
-        //přidat funkci která zobrazí chybu
-    }
-}
-
 
 const translate = async () => {
     try {
         const encodedParams = new URLSearchParams();
         encodedParams.append("q", inputFromUser.value);
-        encodedParams.append("target", selection.value);
-        encodedParams.append("source", "en");
+        encodedParams.append("target", `${keyValueForLanguages[selectTo.value]}`);
+        encodedParams.append("source", `${keyValueForLanguages[selectFrom.value]}`);
 
         const response = await fetch("https://google-translate1.p.rapidapi.com/language/translate/v2",  {
             method: "POST",
@@ -52,10 +52,7 @@ const translate = async () => {
         );
         
         const data = await response.json()
-        displayTranslation.value = data.data.translations[0].translatedText
-
-
-        console.log(data.data.translations[0].translatedText)
+       displayTranslation.value = data.data.translations[0].translatedText
         
 
     } catch (error) {
@@ -65,5 +62,4 @@ const translate = async () => {
 }
 
 
-
-getLanguages()
+displayLanguagesToSelection(keys)

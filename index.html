@@ -13,25 +13,26 @@
 </head>
 <body>
 
-<header id="header">Welcome to Translate</header>
+<header id="header"><h1>Welcome to Translate</h1></header>
 
-<div id="container-row">
-    
-    <input class="inputs" type="text" id="user-input" name="userInput" placeholder="Enter Word">
+<div id="container-row"> 
 
-    <div id="container-column">
-    <label for="languages">Choose a language to translate to:</label>
-    <select name="languages" id="selection">   
+    <div class="container-column">
+    <label class="label-text" for="languageFrom"><h2>Choose a language to translate from:</h2></label>
+    <select name="languageFrom" id="selectFrom">   
     </select>
-
-    <button id="button">Translate</button>
+    <input class="inputs" maxlength="50" type="text" id="user-input" name="userInput" placeholder="Enter Word" >
     </div>
-    
-    <input class="inputs" type="text" id="display" name="display" value="" >
-    
-    
+
+    <div class="container-column">
+    <label class="label-text" for="languageTo"><h2>Choose a language to translate to:</h2></label>
+    <select name="languageTo" id="selectTo">   
+    </select>
+    <input class="inputs" maxlength="50" type="text" id="display" name="display" disabled>
+    </div>
 
 </div>
+<button id="button">Translate</button>
 
 <script src="index.js"></script>    
 </body>

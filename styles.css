@@ -1,55 +1,55 @@
-body {
+.wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 100%;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100vh;
 }
-#header {
+
+.header {
     width: 100%;
-    margin-bottom: 1em;
     padding: 1em 0 1em 0;
-    font-size: 2.5em;
     border-top: solid 0.05em black;
     border-bottom: solid 0.05em black;
     background-color: beige;
     text-align: center;
+    }
+
+.header__welcome{
+    font-size: 2.5em;
     font-weight: normal;
     }
 
-
-#container-row {
+.container-row {
     display: flex;
     flex-direction: row;
     align-items: center;
+    column-gap: 5vw;
 }
 
 .container-column {
     display: flex;
     flex-direction: column;
     background-color: beige;
-    margin: 2vw;
     border: solid black 0.1em;
     border-radius: 1em;
     min-width: 30vw;
 }
 
-.label-text {
-    margin: 0.5em;
+
+
+.select__text {
+  
     text-align: center;
     font-size: 1.5em;
     font-weight: normal;
-}
-
-#selectTo, #selectFrom {
     text-align: center;
-    margin: 1em 0.5em 0 0.5em;
-    padding: 0.5em;
-
+    padding: 0.2em;
 }
-.inputs, .inputs:disabled{
-    
+
+.inputs, .inputs:disabled {
     margin: 1em;
     height: 5em;
     margin-top: 5em;
@@ -57,13 +57,31 @@ body {
     color: black;
     border: solid black 0.2em;
 }
-#button {
+.button {
     width: 30vw;
     font-size: 1.5em;
     border-radius: 1em;
     height: 2.5em;
 }
 
-#button:hover {
+.button:hover {
     background-color: #ebb505;
 }
+
+.loader {
+    position: absolute;
+    top: 16em;
+}
+
+.loader__active {
+    border: 16px solid rgb(180, 180, 180);
+    border-top: 16px solid #0099ff; 
+    border-radius: 50%;
+    width: 8em;
+    height: 8em;
+    animation: spin 2s linear infinite;   
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

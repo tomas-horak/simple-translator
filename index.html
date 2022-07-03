@@ -12,28 +12,39 @@
  
 </head>
 <body>
+<div class="wrapper">
 
-<header id="header"><h1>Welcome to Translate</h1></header>
+<header class="header"><h1 class="header__welcome">Welcome to Translate</h1></header>
+<div class="loader"></div>
 
-<div id="container-row"> 
+<div class="container-row"> 
 
     <div class="container-column">
-    <label class="label-text" for="languageFrom"><h2>Choose a language to translate from:</h2></label>
-    <select name="languageFrom" id="selectFrom">   
-    </select>
-    <input class="inputs" maxlength="50" type="text" id="user-input" name="userInput" placeholder="Enter Word" >
+
+    <label class="select" for="languageFrom"><h2 class="select__text">Choose a language to translate from:</h2></label>
+    <select name="languageFrom" class="select select__from"></select>
+
+    <input class="inputs user-input" maxlength="50" type="text" name="userInput" placeholder="Enter Word">
     </div>
 
     <div class="container-column">
-    <label class="label-text" for="languageTo"><h2>Choose a language to translate to:</h2></label>
-    <select name="languageTo" id="selectTo">   
+    <label class="select" for="languageTo"><h2 class="select__text">Choose a language to translate to:</h2></label>
+    <select name="languageTo" class="select__to"> 
     </select>
-    <input class="inputs" maxlength="50" type="text" id="display" name="display" disabled>
+    <input class="inputs display" maxlength="50" type="text"  name="display">
     </div>
 
 </div>
-<button id="button">Translate</button>
 
-<script src="index.js"></script>    
+<button class="button"><h2 class="button__heading">Translate</h2></button>
+
+<footer class="footer header">
+    <p class="footer_text">This is just a test project</p>
+</footer>
+
+
+</div>
+<script type="module" src="MODULES/index.js"></script>    
+<script type="module" src="MODULES/view.js"></script>
 </body>
 </html>

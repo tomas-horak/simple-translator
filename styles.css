@@ -38,15 +38,16 @@
     min-width: 30vw;
 }
 
-
+.select {
+  margin: 0em 1em;
+}
 
 .select__text {
-  
     text-align: center;
     font-size: 1.5em;
     font-weight: normal;
     text-align: center;
-    padding: 0.2em;
+    padding: 0.5em;
 }
 
 .inputs, .inputs:disabled {

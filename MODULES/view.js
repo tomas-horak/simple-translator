@@ -1,5 +1,6 @@
 const display = document.querySelector(".display")
 const loader = document.querySelector(".loader")
+const wrapper = document.querySelector(".wrapper")
 
 //zobrazí jazyky v selectu
 export function displayLanguagesToSelection (keys, selectFrom, selectTo) {
@@ -18,5 +19,7 @@ export function displayTranslation (word) {
 //zobrazí načítání při požadavku na překlad
 export function showLoader () {
 loader.classList.toggle("loader__active")
+wrapper.classList.toggle("wrapper__dim")
+
 }
 //zobrazí chybu při špatném API callu

@@ -16,12 +16,14 @@ export const keys = Object.keys(keyValueForLanguages)
 //API call
 import { displayTranslation } from "./view.js";
 import { showLoader } from "./view.js";
+
 export async function translate (fromLang, toLang, word){
     if(fromLang == toLang){
         displayTranslation(word)
         return
     }
     try {
+        showLoader()
         const encodedParams = new URLSearchParams();
         encodedParams.append("q", word);
         encodedParams.append("target", `${keyValueForLanguages[toLang]}`);
